@@ -29,7 +29,7 @@ const NavBar = () => {
         </Link>
         <Link
           target="_blank"
-          href="https://github.com/Vyzz1/SharePrompt"
+          href="https://github.com/Vyzz1/share-prompt"
           className="flex gap-2 flex-center"
         >
           <Image
