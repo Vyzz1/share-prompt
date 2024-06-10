@@ -23,13 +23,18 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const respone = await fetch("/api/prompt");
-      const data = await respone.json();
-      setPosts(data);
-      setprePost(data);
+      try {
+        const response = await fetch("/api/prompt", { cache: "no-store" });
+        const data = await response.json();
+        setPosts(data);
+        setprePost(data);
+      } catch (error) {
+        console.error("Error fetching prompts:", error);
+      }
     };
     fetchData();
   }, []);
+
   const [searchText, setSearchText] = useState("");
   const filterPost = useCallback(
     debounce((keySearch) => {
